@@ -8,6 +8,6 @@ controller_manager_develop:
   - /home/docker/app/kubernetes/logs/controller-manager/:/var/log/kube/controller-manager/
   - /home/docker/app/kubernetes/keys/:/tmp/keys/
   command: ./controller-manager --master=http://172.16.35.135:8089
-                                   --service-account-private-key-file=/tmp/keys/serviceaccount.key
-                                   --logtostderr=false --log-dir=/var/log/kube/controller-manager/ --v=2
+                                --service-account-private-key-file=/tmp/keys/apiserver-key.pem
+                                --logtostderr=false --log-dir=/var/log/kube/controller-manager/ --v=2
 #
