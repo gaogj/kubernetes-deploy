@@ -1,10 +1,10 @@
 etcd_node_1:
   restart: always
   image: docker.weibangong.me/etcd-cluster:v3.1.0
-  net: bridge
-  ports:
-    - 2380:2380
-    - 2379:2379
+  net: host
+  #ports:
+  #  - 2380:2380
+  #  - 2379:2379
   volumes:
     - /home/docker/app/etcd_node_1/data:/home/data
     - /home/docker/app/etcd_node_1/logs:/home/logs
