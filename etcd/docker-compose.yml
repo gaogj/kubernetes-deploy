@@ -7,14 +7,15 @@ etcd_node_1:
     - 2379:2379
   volumes:
     - /home/docker/app/etcd_node_1/data:/home/data
+    - /home/docker/app/etcd_node_1/logs:/home/logs
   environment:
-    CLUSTER_NAME=etc_cluster_kube
-    CLUSTER_STATE=new
+    - CLUSTER_NAME=etc_cluster_kube
+    - CLUSTER_STATE=new
     #修改集群信息
-    HOST_1=172.16.35.135
-    HOST_2=172.16.35.174
-    HOST_3=172.16.35.184
+    - HOST_1=172.16.35.135
+    - HOST_2=172.16.35.174
+    - HOST_3=172.16.35.184
     #修改本机信息
-    THIS_NAME=node_1
-    THIS_IP=172.16.35.135
+    - THIS_NAME=node_1
+    - THIS_IP=172.16.35.135
 

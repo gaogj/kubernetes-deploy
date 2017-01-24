@@ -14,7 +14,7 @@ THIS_IP=$THIS_IP
 #
 CLUSTER=${NAME_1}=http://${HOST_1}:2380,${NAME_2}=http://${HOST_2}:2380,${NAME_3}=http://${HOST_3}:2380
 #
-mkdir -p /home/{data,logs}
+mkdir -p /home/data && mkdir -p /home/logs
 #
 nohup /usr/local/bin/etcd \
     --data-dir=/home/data --name ${THIS_NAME} \
