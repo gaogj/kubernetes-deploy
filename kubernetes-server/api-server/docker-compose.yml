@@ -1,0 +1,20 @@
+#k8s api-server 启动文件
+#
+api_server_develop_8080:
+  restart: always
+  image: docker.weibangong.me/google-containers/hyperkube:v1.5.2
+  net: bridge
+  ports:
+    - 8080:8080
+  volumes:
+  - /home/docker/app/kubernetes/logs/api-server/:/var/log/kube/api-server/
+  - /home/docker/app/kubernetes/keys/:/tmp/keys/
+  command: ./apiserver --etcd-servers=http://172.16.35.135:2379,http://172.16.35.174:2379,http://172.16.35.184:2379
+                          --etcd-prefix=/cluster/develop
+                          --insecure-bind-address=0.0.0.0
+                          --insecure-port=8080
+                          --service-account-key-file=/tmp/keys/apiserver-key.pem
+                          --service-cluster-ip-range="10.254.0.0/16"
+                          --admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota
+                          --logtostderr=false --log-dir=/var/log/kube/api-server/ --v=2
+#
