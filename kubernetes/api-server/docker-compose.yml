@@ -13,7 +13,7 @@ api_server_develop_8080:
                           --etcd-prefix=/cluster/develop
                           --insecure-bind-address=0.0.0.0
                           --insecure-port=8080
-                          --service-account-key-file=/tmp/keys/serviceaccount.key
+                          --service-account-key-file=/tmp/keys/apiserver-key.pem
                           --service-cluster-ip-range="10.254.0.0/16"
                           --admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota
                           --logtostderr=false --log-dir=/var/log/kube/api-server/ --v=2
